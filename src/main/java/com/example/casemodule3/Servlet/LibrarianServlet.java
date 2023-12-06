@@ -1,5 +1,8 @@
 package com.example.casemodule3.Servlet;
 
+import com.example.casemodule3.Controller.BookController;
+import com.example.casemodule3.Model.BookDAO;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,11 +13,31 @@ import java.io.IOException;
 
 @WebServlet(name = "LibrarianServlet", urlPatterns = "/librarian")
 public class LibrarianServlet extends HttpServlet {
+    protected BookController bookController;
+    @Override
+    public void init() throws ServletException {
+        bookController = new BookController();
+    }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/librarian/librarianHome.jsp");
-        dispatcher.forward(req, resp);
+
+        String action = req.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        try {
+        switch(action) {
+//            case "showBook":
+//                    bookController.showListBook(req, resp);
+//                break;
+            default:
+                bookController.showListBook(req,resp);
+        }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

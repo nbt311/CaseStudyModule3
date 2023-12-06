@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-=======
->>>>>>> 799ce92374c7b91a0ab70070bd2019bd88ec7676
 <%--
   Created by IntelliJ IDEA.
   User: nbtru
@@ -41,8 +38,8 @@
             </a>
         </li>
         <li>
-            <a href="#">
-                <i class='bx bxs-library' ></i>
+            <a href="/librarian/librarianHome.jsp">
+                <i class='bx bxs-book' ></i>
                 <span class="text">Book List</span>
             </a>
         </li>
@@ -252,13 +249,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-=======
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
->>>>>>> 799ce92374c7b91a0ab70070bd2019bd88ec7676
