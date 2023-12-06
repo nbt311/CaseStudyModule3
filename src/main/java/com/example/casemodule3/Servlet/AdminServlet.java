@@ -27,6 +27,9 @@ public class AdminServlet extends HttpServlet {
                 case "add":
                     showFormAddLibrarian(req, resp);
                     break;
+                case "update":
+                    showFormUpdateLibrarian(req, resp);
+                    break;
                 default:
                     RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/adminHome.jsp");
                     dispatcher.forward(req, resp);
@@ -36,6 +39,11 @@ public class AdminServlet extends HttpServlet {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void showFormUpdateLibrarian(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/addLibrarian.jsp");
+        dispatcher.forward(req, resp);
     }
 
     private void showFormAddLibrarian(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
