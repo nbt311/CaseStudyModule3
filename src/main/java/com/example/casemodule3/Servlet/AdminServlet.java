@@ -12,10 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet(name = "AdminServlet", urlPatterns = "/admin")
 public class AdminServlet extends HttpServlet {
     AdminDAO adminDAO = new AdminModel();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
@@ -23,10 +25,16 @@ public class AdminServlet extends HttpServlet {
             action = "";
         }
         try {
-            switch (action){
+            switch (action) {
                 case "add":
                     showFormAddLibrarian(req, resp);
                     break;
+                case "delete":
+                    deleteLibrarian(req, resp);
+                    break;
+                    case "list":
+                        showListUser(req, resp);
+                        break;
                 default:
                     RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/adminHome.jsp");
                     dispatcher.forward(req, resp);
@@ -35,9 +43,23 @@ public class AdminServlet extends HttpServlet {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
+    private void showListUser(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
+        List<User> listUser = adminDAO.getAll();
+        req.setAttribute("listUser", listUser);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("admin/userList.jsp");
+        dispatcher.forward(req, resp);
+    }
+
+    private void deleteLibrarian(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        adminDAO.deleteUser(id);
+        resp.sendRedirect("/admin?action=list");
+    }
     private void showFormAddLibrarian(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/addLibrarian.jsp");
         dispatcher.forward(req, resp);
@@ -51,7 +73,7 @@ public class AdminServlet extends HttpServlet {
             action = "";
         }
         try {
-            switch (action){
+            switch (action) {
                 case "add":
                     addLibrarian(req, resp);
                     break;
@@ -71,6 +93,6 @@ public class AdminServlet extends HttpServlet {
         User user = new User(name, email, phone, username, password, role);
         adminDAO.addUser(user);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/addLibrarian.jsp");
-        dispatcher.forward(req,resp);
+        dispatcher.forward(req, resp);
     }
 }

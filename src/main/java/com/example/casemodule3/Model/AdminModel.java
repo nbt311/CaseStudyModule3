@@ -18,7 +18,7 @@ public class AdminModel implements AdminDAO{
     }
     @Override
     public List<User> getAll() throws SQLException {
-        List<User> users = new ArrayList<User>();
+        List<User> users = new ArrayList<>();
         try {
             String sql = "SELECT * FROM users";
             PreparedStatement statement = conn.prepareStatement(sql);
@@ -60,5 +60,19 @@ public class AdminModel implements AdminDAO{
         } catch (SQLException e) {
             System.out.println(e.getMessage() + "Error");
         }
+    }
+
+    @Override
+    public boolean deleteUser(int id) throws SQLException {
+        boolean rowDeleted = false;
+        try {
+            String sql = "DELETE FROM users WHERE id = ?" ;
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            rowDeleted = statement.executeUpdate() > 0;
+        }catch (SQLException e) {
+            System.out.println(e.getMessage() + "Error");
+        }
+        return rowDeleted;
     }
 }
