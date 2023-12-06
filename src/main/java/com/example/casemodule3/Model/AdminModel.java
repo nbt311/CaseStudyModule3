@@ -10,14 +10,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserModel implements UserDAO {
+public class AdminModel implements AdminDAO{
     protected Connection conn;
-
-    public UserModel() {
+    public AdminModel(){
         Database database = Database.getInstance();
         this.conn = database.connect();
     }
-
     @Override
     public List<User> getAll() throws SQLException {
         List<User> users = new ArrayList<User>();
@@ -44,33 +42,23 @@ public class UserModel implements UserDAO {
     }
 
     @Override
-    public boolean checkUser(String username, String password) throws SQLException {
-        try {
-            String query = "SELECT * FROM users WHERE username = ? AND password = ?";
-            PreparedStatement statement = conn.prepareStatement(query);
-            statement.setString(1, username);
-            statement.setString(2, password);
-            ResultSet resultSet = statement.executeQuery();
-            return resultSet.next(); // Nếu có kết quả, đăng nhập thành công
+    public void addUser(User user) throws SQLException {
+        try{
+            String sql = "INSERT INTO users (name, " +
+                    "email, " +
+                    "phone, " +
+                    "username, " +
+                    "password,role) VALUES (?,?,?,?,?,?)";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, user.getName());
+            statement.setString(2, user.getEmail());
+            statement.setString(3, user.getPhone());
+            statement.setString(4, user.getUsername());
+            statement.setString(5,user.getPassword());
+            statement.setString(6, user.getRole());
+            statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace(); // Xử lý lỗi kết nối cơ sở dữ liệu
+            System.out.println(e.getMessage() + "Error");
         }
-        return false; // Đăng nhập không thành công
-    }
-
-    @Override
-    public String getRole(String username) throws SQLException {
-        try {
-            String query = "SELECT role FROM users WHERE username = ?";
-            PreparedStatement statement = conn.prepareStatement(query);
-            statement.setString(1, username);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                return resultSet.getString("role"); // Trả về vai trò của người dùng
-            }
-        } catch (SQLException e) {
-            e.printStackTrace(); // Xử lý lỗi kết nối cơ sở dữ liệu
-        }
-        return null; // Trả về null nếu không tìm thấy vai trò
     }
 }
