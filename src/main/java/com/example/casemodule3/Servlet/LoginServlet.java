@@ -1,4 +1,4 @@
-package com.example.casemodule3.Controller;
+package com.example.casemodule3.Servlet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
