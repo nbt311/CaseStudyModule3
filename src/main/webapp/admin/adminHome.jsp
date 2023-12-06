@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+=======
+>>>>>>> 799ce92374c7b91a0ab70070bd2019bd88ec7676
 <%--
   Created by IntelliJ IDEA.
   User: nbtru
@@ -7,6 +10,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -248,3 +252,13 @@
 <script src="script.js"></script>
 </body>
 </html>
+=======
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+>>>>>>> 799ce92374c7b91a0ab70070bd2019bd88ec7676
