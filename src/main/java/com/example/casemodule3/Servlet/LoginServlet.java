@@ -1,4 +1,4 @@
-package com.example.casemodule3.Controller;
+package com.example.casemodule3.Servlet;
 
 import com.example.casemodule3.Model.UserDAO;
 import com.example.casemodule3.Model.UserModel;
