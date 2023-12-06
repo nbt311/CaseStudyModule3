@@ -12,7 +12,7 @@ import java.io.IOException;
 public class LibrarianServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/librarian/home.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/librarian/librarianHome.jsp");
         dispatcher.forward(req, resp);
     }
 
