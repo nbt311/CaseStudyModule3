@@ -18,7 +18,7 @@ public class AdminModel implements AdminDAO{
     }
     @Override
     public List<User> getAll() throws SQLException {
-        List<User> users = new ArrayList<User>();
+        List<User> users = new ArrayList<>();
         try {
             String sql = "SELECT * FROM users";
             PreparedStatement statement = conn.prepareStatement(sql);
@@ -60,5 +60,57 @@ public class AdminModel implements AdminDAO{
         } catch (SQLException e) {
             System.out.println(e.getMessage() + "Error");
         }
+    }
+
+    @Override
+    public User selectUser(int id) {
+        User user = null;
+        try {
+            String sql ="SELECT id,name,email,phone FROM users WHERE id =?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String phone = rs.getString("phone");
+                user = new User(id, name, email, phone);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + "Error");
+        }
+        return user;
+    }
+
+    @Override
+    public boolean updateUser(User user) throws SQLException {
+        boolean rowUpdated;
+        try {
+            String sql = "UPDATE users set name = ?,email= ?, phone =? where id = ?;";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, user.getName());
+            statement.setString(2, user.getEmail());
+            statement.setString(3, user.getPhone());
+            statement.setInt(4, user.getId());
+            rowUpdated = statement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return rowUpdated;
+    }
+
+    @Override
+    public boolean deleteUser(int id) throws SQLException {
+        boolean rowDeleted = false;
+        try {
+            String sql = "DELETE FROM users WHERE id = ?" ;
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            rowDeleted = statement.executeUpdate() > 0;
+        }catch (SQLException e) {
+            System.out.println(e.getMessage() + "Error");
+        }
+        return rowDeleted;
     }
 }
