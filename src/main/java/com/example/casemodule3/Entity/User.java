@@ -3,21 +3,23 @@ package com.example.casemodule3.Entity;
 public class User {
     private int id;
   private String name;
-  private String dateOfBirth;
   private String email;
-  private String password;
   private  String phone;
-  private String img;
+  private String avatar;
+  private String username;
+  private String password;
+
+
   private String role;
 
-    public User(int id,String name, String dateOfBirth, String email, String password, String phone, String img, String role) {
+    public User(int id, String name, String email, String phone, String avatar, String username, String password, String role) {
         this.id = id;
         this.name = name;
-        this.dateOfBirth = dateOfBirth;
         this.email = email;
-        this.password = password;
         this.phone = phone;
-        this.img = img;
+        this.avatar = avatar;
+        this.username = username;
+        this.password = password;
         this.role = role;
     }
 
@@ -37,13 +39,6 @@ public class User {
         this.name = name;
     }
 
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
 
     public String getEmail() {
         return email;
@@ -70,12 +65,12 @@ public class User {
         this.phone = phone;
     }
 
-    public String getImg() {
-        return img;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public String getRole() {
