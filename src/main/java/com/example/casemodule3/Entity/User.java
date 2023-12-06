@@ -1,20 +1,32 @@
-package com.example.casemodule3.Model;
+package com.example.casemodule3.Entity;
 
-public class Admin {
+public class User {
+    private int id;
   private String name;
   private String dateOfBirth;
   private String email;
   private String password;
   private  String phone;
   private String img;
+  private String role;
 
-    public Admin(String name, String dateOfBirth, String email,String password, String phone, String img) {
+    public User(int id,String name, String dateOfBirth, String email, String password, String phone, String img, String role) {
+        this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.password = password;
         this.phone = phone;
         this.img = img;
+        this.role = role;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -64,5 +76,13 @@ public class Admin {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

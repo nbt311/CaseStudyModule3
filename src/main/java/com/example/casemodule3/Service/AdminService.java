@@ -1,5 +1,6 @@
 package com.example.casemodule3.Service;
 
-public interface AdminService {
+import java.util.List;
 
+public interface AdminService {
 }
