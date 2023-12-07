@@ -49,7 +49,6 @@
         </thead>
         <tbody>
         <c:forEach var="item" items="${books}" >
-
             <tr>
                 <td>${item.getId()}</td>
                 <td>${item.getName()}</td>
@@ -58,8 +57,6 @@
                 <td>${item.getStatus()}</td>
                 <td>${item.getCategory()}</td>
                 <td>${item.getAuthor()}</td>
-
-
             </tr>
         </c:forEach>
 
