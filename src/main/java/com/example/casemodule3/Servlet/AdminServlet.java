@@ -3,7 +3,6 @@ package com.example.casemodule3.Servlet;
 import com.example.casemodule3.Entity.User;
 import com.example.casemodule3.Model.AdminDAO;
 import com.example.casemodule3.Model.AdminModel;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -105,8 +104,7 @@ public class AdminServlet extends HttpServlet {
 
         User user = new User(id, name, email, phone);
         adminDAO.updateUser(user);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("admin/updateUser.jsp");
-        dispatcher.forward(req, resp);
+        resp.sendRedirect("/admin?action=list");
     }
 
     private void addLibrarian(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {

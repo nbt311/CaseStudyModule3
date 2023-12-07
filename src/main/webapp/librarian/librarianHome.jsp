@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -43,8 +44,6 @@
             <th>Status</th>
             <th>Category</th>
             <th>Author</th>
-            <th>Update</th>
-            <th>Delete</th>
 
         </tr>
         </thead>
@@ -59,8 +58,7 @@
                 <td>${item.getStatus()}</td>
                 <td>${item.getCategory()}</td>
                 <td>${item.getAuthor()}</td>
-                <td><button type="button" class="btn btn-danger"><a class="btn-book" href="${pageContext.request.contextPath}/librarian?action=delete&id=<c:out value="${item.getId()}"/>">Delete</a></button></td>
-                <td><button type="button" class="btn btn-success" ><a class="btn-book" href="${pageContext.request.contextPath}/librarian?action=showUpdate&id=<c:out value="${item.getId()}"/>">Update</a></button></td>
+
 
             </tr>
         </c:forEach>
