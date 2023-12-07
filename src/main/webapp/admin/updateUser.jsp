@@ -9,56 +9,71 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-  <title>User Management Application</title>
+  <title>User Edit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/updateUser.css">
 </head>
 <body>
-<center>
-  <h1>User Management</h1>
-  <h2>
-    <a href="admin?action=list">List All Users</a>
-  </h2>
-</center>
-<div align="center">
-  <form method="post">
-    <table border="1" cellpadding="5">
-      <caption>
-        <h2>
-          Edit User
-        </h2>
-      </caption>
-      <c:if test="${user != null}">
-        <input type="hidden" name="id" value="<c:out value='${user.getId()}' />"/>
-      </c:if>
-      <tr>
-        <th>User Name:</th>
-        <td>
-          <input type="text" name="name" size="45"
-                 value="<c:out value='${user.getName()}' />"
-          />
-        </td>
-      </tr>
-      <tr>
-        <th>User Email:</th>
-        <td>
-          <input type="text" name="email" size="45"
-                 value="<c:out value='${user.getEmail()}' />"
-          />
-        </td>
-      </tr>
-      <tr>
-        <th>Phone:</th>
-        <td>
-          <input type="text" name="phone" size="15"
-                 value="<c:out value='${user.getPhone()}' />"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" align="center">
-          <input type="submit" value="Save"/>
-        </td>
-      </tr>
-    </table>
-  </form>
+<div class="container bootstrap snippets bootdey">
+  <h1 class="text-primary">Edit Profile</h1>
+  <hr>
+  <div class="row">
+
+    <div class="col-md-3">
+      <div class="text-center">
+        <img src="${user.getAvatar()}" class="avatar img-circle img-thumbnail" alt="avatar">
+        <h6>Upload a different photo...</h6>
+        <input type="file" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-md-9 personal-info">
+      <div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>
+        <i class="fa fa-coffee"></i>
+        This is an <strong>.alert</strong>. Use this to show important messages to the user.
+      </div>
+      <h3>Personal info</h3>
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value="${user.getName()}">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Email:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value="${user.getEmail()}" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Phone:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value="${user.getPhone()}">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Username:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value="${user.getUsername()}">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Password:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value="">
+          </div>
+        </div><div class="form-group">
+          <label class="col-lg-6 control-label"></label>
+          <div class="col-lg-5">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+<hr>
 </body>
