@@ -107,3 +107,18 @@ values ("Conan",
         "Sách tự lực",
         "Sean Covey");
 
+ create table customer (
+ id int primary key auto_increment,
+ name varchar(255),
+ className varchar(255),
+ address varchar(255),
+ dateOfBirth date
+ );
+
+ insert into customer (name, className, address, dateOfBirth)
+ values("Dlinh","11a5","31 Nguyễn Ngọc Vũ","2003-02-17"),
+ ("Nam","C0823H1","Hà Nội","2002-02-02"),
+ ("Ngô Đức Thắng","12a1","030 Vũ Văn Mật","2002-10-10"),
+ ("Nguyễn Việt Thái","10a3","027 Tôn Thất Thuyết","2004-01-09"),
+ ("Nguyễn Việt Hoàn","10a3","031 Cầu Gồ","2004-10-26");
+ 

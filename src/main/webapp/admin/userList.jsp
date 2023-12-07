@@ -4,6 +4,7 @@
 <html>
 <head>
     <title>User Management Application</title>
+    <link rel="stylesheet" href="/CSS/userList.css">
 </head>
 <body>
 <center>
