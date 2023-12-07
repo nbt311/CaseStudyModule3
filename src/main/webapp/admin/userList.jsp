@@ -31,7 +31,7 @@
                 <td><c:out value="${user.getName()}"/></td>
                 <td><c:out value="${user.getEmail()}"/></td>
                 <td><c:out value="${user.getPhone()}"/></td>
-                <td><c:out value="${user.getAvatar()}"/></td>
+                <td><c:out value="<img src=`${item.getAvatar()}`>"/></td>
                 <td><c:out value="${user.getUsername()}"/></td>
                 <td><c:out value="${user.getPassword()}"/></td>
                 <td><c:out value="${user.getRole()}"/></td>

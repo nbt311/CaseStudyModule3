@@ -38,7 +38,7 @@
             </a>
         </li>
         <li>
-            <a href="/librarian/librarianHome.jsp">
+            <a href="/librarian">
                 <i class='bx bxs-book' ></i>
                 <span class="text">Book List</span>
             </a>
@@ -56,9 +56,9 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="/admin?action=list">
                 <i class='bx bxs-group' ></i>
-                <span class="text">Team</span>
+                <span class="text">User List</span>
             </a>
         </li>
     </ul>
@@ -100,7 +100,7 @@
             <span class="num">8</span>
         </a>
         <a href="#" class="profile">
-            <img src="img/people.png">
+            <img src="Image/admin-avatar.jpg"/>
         </a>
     </nav>
     <!-- NAVBAR -->
