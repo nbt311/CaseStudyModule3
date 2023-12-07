@@ -4,9 +4,13 @@
     background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom, #FFB88C, #DE6262); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     float:left;
-    width:100px !important;
-    height: 100vh;
-
+    width:100vw;
+    height:100vh;
+<<<<<<< HEAD
+    /*padding : 150px 0;*/
+=======
+    padding : 150px 0;
+>>>>>>> 8845fd151c738b64ed4b0cce6d97d8610ed9df4a
 }
 .banner-sec{background:url(https://static.pexels.com/photos/33972/pexels-photo.jpg)  no-repeat left bottom; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;}
 .container{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}

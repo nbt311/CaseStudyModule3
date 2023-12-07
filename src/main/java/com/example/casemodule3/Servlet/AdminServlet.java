@@ -3,7 +3,6 @@ package com.example.casemodule3.Servlet;
 import com.example.casemodule3.Entity.User;
 import com.example.casemodule3.Model.AdminDAO;
 import com.example.casemodule3.Model.AdminModel;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
