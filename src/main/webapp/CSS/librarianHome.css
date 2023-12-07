@@ -8,6 +8,7 @@
     max-height: 300px;
 }
 
-table{
-
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
