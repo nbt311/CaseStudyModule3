@@ -12,6 +12,7 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="/CSS/librarianHome.css">
 </head>
 <body>
 <div class="container">
@@ -39,7 +40,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Avatar</th>
-x`            <th>Describes</th>
+            <th>Describes</th>
             <th>Status</th>
             <th>Category</th>
             <th>Author</th>
@@ -52,7 +53,7 @@ x`            <th>Describes</th>
             <tr>
                 <td>${item.getId()}</td>
                 <td>${item.getName()}</td>
-                <td><img src="${item.getAvatar()}" alt=""></td>
+                <td><img id="img-book" src="${item.getAvatar()}" alt=""></td>
                 <td>${item.getDescribes()}</td>
                 <td>${item.getStatus()}</td>
                 <td>${item.getCategory()}</td>
