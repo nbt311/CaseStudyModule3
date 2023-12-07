@@ -1,5 +1,6 @@
 package com.example.casemodule3.Servlet;
 
+import com.example.casemodule3.Controller.BookController;
 import com.example.casemodule3.Entity.User;
 import com.example.casemodule3.Model.AdminDAO;
 import com.example.casemodule3.Model.AdminModel;
@@ -17,6 +18,12 @@ import java.util.List;
 @WebServlet(name = "AdminServlet", urlPatterns = "/admin")
 public class AdminServlet extends HttpServlet {
     AdminDAO adminDAO = new AdminModel();
+
+    protected BookController bookController;
+    @Override
+    public void init() throws ServletException {
+        bookController = new BookController();
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,14 +43,15 @@ public class AdminServlet extends HttpServlet {
                         showListUser(req, resp);
                         break;
                 default:
-                    RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/adminHome.jsp");
-                    dispatcher.forward(req, resp);
+                    bookController.showHomeAdmin(req,resp);
             }
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

@@ -12,18 +12,19 @@ create table users
     role     varchar(255)
 );
 
+
 insert into users (name, email, phone, avatar, username, password, role)
 values ("DucK Anh",
         "ducanh25062001@gmail.com",
         "0963212083",
-        "webapp/Image/admin-avatar.jpg",
+        "Image/admin-avatar.jpg",
         "admin",
         "admin",
         "admin"),
        ("Trump",
         "nbtrung@gmail.com",
         "0369636368",
-        "webapp/Image/trump-avatar.jpg",
+        "Image/trump-avatar.jpg",
         "trump311",
         "123456",
         "librarian");

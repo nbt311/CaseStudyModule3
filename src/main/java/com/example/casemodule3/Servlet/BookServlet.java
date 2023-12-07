@@ -2,6 +2,7 @@ package com.example.casemodule3.Servlet;
 
 import com.example.casemodule3.Controller.BookController;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "LibrarianServlet", urlPatterns = "/librarian")
-public class LibrarianServlet extends HttpServlet {
+@WebServlet(name = "BookServlet", urlPatterns = "/book")
+public class BookServlet extends HttpServlet {
     protected BookController bookController;
 
     @Override
@@ -31,7 +32,7 @@ public class LibrarianServlet extends HttpServlet {
 //                    bookController.showListBook(req, resp);
 //                break;
                 default:
-                    bookController.showHomeLibrarian(req, resp);
+                    bookController.showListBook(req,resp);
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

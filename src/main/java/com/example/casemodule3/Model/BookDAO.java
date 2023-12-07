@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface BookDAO {
     List<Book> getAll() throws Exception;
+    List<Book> get5NewestBooks(int limit) throws Exception;
+    int totalBook();
     void delete(int id) throws Exception;
     void save(Book book) throws Exception;
     void update(Book book) throws Exception;
