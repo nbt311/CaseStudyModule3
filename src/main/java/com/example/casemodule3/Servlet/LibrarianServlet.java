@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 
 @WebServlet(name = "LibrarianServlet", urlPatterns = "/librarian")
 public class LibrarianServlet extends HttpServlet {
@@ -27,44 +26,20 @@ public class LibrarianServlet extends HttpServlet {
         }
         try {
         switch(action) {
-            case "create":
-                bookController.showAddBook(req, resp);
-                break;
-            case "showUpdate":
-                bookController.showUpdateBook(req, resp);
-                break;
-            case "delete":
-                bookController.deleteBook(req, resp);
-                    break;
+//            case "showBook":
+//                    bookController.showListBook(req, resp);
+//                break;
             default:
                 bookController.showListBook(req,resp);
-                break;
-            }
+        }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String action = req.getParameter("action");
-        if (action == null){
-            action = "";
-        }
-        try {
-            switch (action){
-                case "create":
-                    bookController.addBook(req, resp);
-                    break;
-                case "update":
-                    bookController.updateBook(req, resp);
-                default:
-                    bookController.showListBook(req,resp);
-            }
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-
+        super.doPost(req, resp);
     }
 }

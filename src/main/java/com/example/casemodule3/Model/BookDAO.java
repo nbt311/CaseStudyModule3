@@ -10,7 +10,7 @@ public interface BookDAO {
     void delete(int id) throws Exception;
     void save(Book book) throws Exception;
     void update(Book book) throws Exception;
-    Book getById(int id);
+    void getById(int id);
     // show danh sách tìm kiếm theo key
     List<Book> search(String key);
 

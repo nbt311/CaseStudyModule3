@@ -19,15 +19,6 @@ public class Book {
         this.author = author;
     }
 
-    public Book(String name, String avatar, String describes, String status, String category, String author) {
-        this.name = name;
-        this.avatar = avatar;
-        this.describes = describes;
-        this.status = status;
-        this.category = category;
-        this.author = author;
-    }
-
     public int getId() {
         return id;
     }
@@ -82,18 +73,5 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", describes='" + describes + '\'' +
-                ", status='" + status + '\'' +
-                ", category='" + category + '\'' +
-                ", author='" + author + '\'' +
-                '}';
     }
 }

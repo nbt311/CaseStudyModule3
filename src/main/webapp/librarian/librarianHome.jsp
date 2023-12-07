@@ -19,7 +19,7 @@
     <h2>Danh sách thư viện</h2>
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link active"  href="/librarian?action=create">Add</a>
+            <a class="nav-link active"  href="/products?action=create">Add</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
