@@ -8,9 +8,25 @@ public class Book {
     private String status;
     private String category;
     private String author;
+    public Book(){}
 
     public Book(int id, String name, String avatar, String describes, String status, String category, String author) {
         this.id = id;
+        this.name = name;
+        this.avatar = avatar;
+        this.describes = describes;
+        this.status = status;
+        this.category = category;
+        this.author = author;
+    }
+
+    public Book(String name, String category, String author) {
+        this.name = name;
+        this.category = category;
+        this.author = author;
+    }
+
+    public Book(String name, String avatar, String describes, String status, String category, String author) {
         this.name = name;
         this.avatar = avatar;
         this.describes = describes;

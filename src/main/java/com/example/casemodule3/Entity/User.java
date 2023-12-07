@@ -8,6 +8,8 @@ public class User {
     private String avatar;
     private String username;
     private String password;
+
+
     private String role;
 
     public User(int id, String name, String email, String phone, String avatar, String username, String password, String role) {
@@ -35,6 +37,16 @@ public class User {
         this.name = name;
         this.email = email;
         this.phone = phone;
+    }
+
+    public User(String name, String email, String phone, String avatar, String username, String password, String role) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.avatar = avatar;
+        this.username = username;
+        this.password = password;
+        this.role = role;
     }
 
     public int getId() {

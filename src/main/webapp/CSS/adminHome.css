@@ -64,9 +64,6 @@ body {
     overflow-x: hidden;
     scrollbar-width: none;
 }
-#sidebar::--webkit-scrollbar {
-    display: none;
-}
 #sidebar.hide {
     width: 60px;
 }
@@ -165,10 +162,11 @@ body {
 
 /* CONTENT */
 #content {
-    position: relative;
+    position: fixed;
     width: calc(100% - 280px);
     left: 280px;
     transition: .3s ease;
+    top: 0;
 }
 #sidebar.hide ~ #content {
     width: calc(100% - 60px);
@@ -452,8 +450,8 @@ body {
 #content main .table-data .order table tr td:first-child {
     display: flex;
     align-items: center;
-    grid-gap: 12px;
-    padding-left: 6px;
+    grid-gap: 15px;
+    padding-right: 15px;
 }
 #content main .table-data .order table td img {
     width: 36px;
@@ -551,7 +549,6 @@ body {
         width: auto;
         height: auto;
         background: transparent;
-        border-radius: none;
         color: var(--dark);
     }
 

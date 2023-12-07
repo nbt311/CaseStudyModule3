@@ -12,18 +12,19 @@ create table users
     role     varchar(255)
 );
 
+
 insert into users (name, email, phone, avatar, username, password, role)
 values ("DucK Anh",
         "ducanh25062001@gmail.com",
         "0963212083",
-        "webapp/Image/admin-avatar.jpg",
+        "Image/admin-avatar.jpg",
         "admin",
         "admin",
         "admin"),
        ("Trump",
         "nbtrung@gmail.com",
         "0369636368",
-        "webapp/Image/trump-avatar.jpg",
+        "Image/trump-avatar.jpg",
         "trump311",
         "123456",
         "librarian");
@@ -122,3 +123,20 @@ values ("Conan",
  ("Nguyễn Việt Thái","10a3","027 Tôn Thất Thuyết","2004-01-09"),
  ("Nguyễn Việt Hoàn","10a3","031 Cầu Gồ","2004-10-26");
  
+ 
+ create table orders(
+ id int primary key auto_increment,
+ customer_id int,
+ books_id int,
+ foreign key (customer_id) references customer(id),
+ foreign key (books_id) references books(id)
+ );
+ 
+ create table orderDetail(
+ orders_id int,
+ books_id int,
+ foreign key (orders_id) references orders(id),
+ foreign key (books_id) references books(id),
+borroweDay date,
+payDay date
+ );
