@@ -32,9 +32,9 @@ public class AdminServlet extends HttpServlet {
                 case "delete":
                     deleteLibrarian(req, resp);
                     break;
-                    case "list":
-                        showListUser(req, resp);
-                        break;
+                case "list":
+                    showListUser(req, resp);
+                    break;
                 default:
                     RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/adminHome.jsp");
                     dispatcher.forward(req, resp);
@@ -60,6 +60,7 @@ public class AdminServlet extends HttpServlet {
         adminDAO.deleteUser(id);
         resp.sendRedirect("/admin?action=list");
     }
+
     private void showFormAddLibrarian(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/addLibrarian.jsp");
         dispatcher.forward(req, resp);
