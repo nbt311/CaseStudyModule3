@@ -39,7 +39,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Avatar</th>
-            <th>Describes</th>
+x`            <th>Describes</th>
             <th>Status</th>
             <th>Category</th>
             <th>Author</th>
@@ -52,7 +52,7 @@
             <tr>
                 <td>${item.getId()}</td>
                 <td>${item.getName()}</td>
-                <td>${item.getAvatar()}</td>
+                <td><img src="${item.getAvatar()}" alt=""></td>
                 <td>${item.getDescribes()}</td>
                 <td>${item.getStatus()}</td>
                 <td>${item.getCategory()}</td>
