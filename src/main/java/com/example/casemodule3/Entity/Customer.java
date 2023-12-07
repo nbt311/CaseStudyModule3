@@ -15,6 +15,13 @@ public class Customer {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public Customer(String name, String className, String address, String dateOfBirth) {
+        this.name = name;
+        this.className = className;
+        this.address = address;
+        this.dateOfBirth = dateOfBirth;
+    }
+
     public int getId() {
         return id;
     }

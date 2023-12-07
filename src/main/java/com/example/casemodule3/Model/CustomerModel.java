@@ -59,12 +59,41 @@ public class CustomerModel implements CustomerDAO {
 
     @Override
     public Customer findCustomerById(int id) throws SQLException {
-        return null;
+        Customer customer = null;
+        try {
+            String sql ="SELECT id,name,classname,address, dateOfbirth FROM customer WHERE id =?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String classname = rs.getString("classname");
+                String address = rs.getString("address");
+                String dateOfbirth = rs.getString("dateOfbirth");
+                customer = new Customer(id, name, classname,address,dateOfbirth);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + "Error");
+        }
+        return customer;
     }
 
     @Override
     public boolean updateCustomer(Customer customer) throws SQLException {
-        return false;
+        boolean rowUpdated;
+        try {
+            String sql = "UPDATE customer set name = ?,className= ?, address =?, dateOfBirth =? where id = ?;";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, customer.getName());
+            statement.setString(2, customer.getClassName());
+            statement.setString(3, customer.getAddress());
+            statement.setString(4, customer.getDateOfBirth());
+            statement.setInt(5, customer.getId());
+            rowUpdated = statement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return rowUpdated;
     }
 
     @Override

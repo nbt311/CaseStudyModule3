@@ -104,8 +104,7 @@ public class AdminServlet extends HttpServlet {
 
         User user = new User(id, name, email, phone);
         adminDAO.updateUser(user);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("admin/updateUser.jsp");
-        dispatcher.forward(req, resp);
+        resp.sendRedirect("/admin?action=list");
     }
 
     private void addLibrarian(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
