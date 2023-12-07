@@ -27,14 +27,14 @@
         </tr>
         <c:forEach var="user" items="${listUser}">
             <tr>
-                <td><c:out value="${user.getId()}"/></td>
-                <td><c:out value="${user.getName()}"/></td>
-                <td><c:out value="${user.getEmail()}"/></td>
-                <td><c:out value="${user.getPhone()}"/></td>
-                <td><c:out value="<img src=`${item.getAvatar()}`>"/></td>
-                <td><c:out value="${user.getUsername()}"/></td>
-                <td><c:out value="${user.getPassword()}"/></td>
-                <td><c:out value="${user.getRole()}"/></td>
+                <td>${user.getId()}</td>
+                <td>${user.getName()}</td>
+                <td>${user.getEmail()}</td>
+                <td>${user.getPhone()}</td>
+                <td><img src=`${user.getAvatar()}`></td>
+                <td>${user.getUsername()}</td>
+                <td>${user.getPassword()}</td>
+                <td>${user.getRole()}</td>
                 <td>
                     <a href="/admin?action=update&id=${user.getId()}">Update</a>
                     <a href="/admin?action=delete&id=${user.getId()}">Delete</a>
