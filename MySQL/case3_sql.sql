@@ -140,7 +140,7 @@ values ("Conan",
 borroweDay DATETIME DEFAULT CURRENT_TIMESTAMP,
 payDay date
  );
-SELECT day(borroweDay) from orderDetail;
+
 insert into orders(customer_id,books_id)
 values(1,5),
 (2,11),

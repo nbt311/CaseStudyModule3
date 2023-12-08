@@ -48,6 +48,11 @@
                 <i class='bx bxs-group' ></i>
                 <span class="text">Customer List</span>
             </a>
+        </li><li>
+            <a href="/borrow">
+                <i class='bx bxs-group' ></i>
+                <span class="text">Borrow List</span>
+            </a>
         </li>
     </ul>
     <ul class="side-menu">
