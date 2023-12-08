@@ -28,11 +28,18 @@ public class BookServlet extends HttpServlet {
         }
         try {
             switch (action) {
-//            case "showBook":
-//                    bookController.showListBook(req, resp);
-//                break;
+                case "update":
+                    bookController.showFromUpdate(req, resp);
+                    break;
+                case "add":
+                    bookController.showAddBook(req, resp);
+                    break;
+                case "delete":
+                    bookController.deleteBook(req, resp);
+                    break;
                 default:
                     bookController.showListBook(req,resp);
+                    break;
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -42,6 +49,21 @@ public class BookServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String action = req.getParameter("action");
+        if (action == null){
+            action = "";
+        }
+        try {
+            switch (action) {
+            case "addBook":
+                bookController.addListBook(req, resp);
+                break;
+            case "updateBook":
+                bookController.updateBook(req, resp);
+
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
