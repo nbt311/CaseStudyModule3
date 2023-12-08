@@ -47,6 +47,8 @@
       <th>Status</th>
       <th>Category</th>
       <th>Author</th>
+      <th>Delete</th>
+      <th>Update</th>
 
     </tr>
     </thead>
