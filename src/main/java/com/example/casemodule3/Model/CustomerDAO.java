@@ -10,5 +10,8 @@ public interface CustomerDAO {
     void addCustomer(Customer customer) throws SQLException;
     Customer findCustomerById(int id) throws SQLException;
     boolean updateCustomer(Customer customer) throws SQLException;
+
+    int totalCustomer();
+
     boolean deleteCustomer(int id) throws SQLException;
 }

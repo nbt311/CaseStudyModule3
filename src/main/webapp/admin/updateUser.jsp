@@ -66,12 +66,18 @@
           <div class="col-lg-8">
             <input class="form-control" name="password" type="text" value="">
           </div>
-        </div><div class="form-group">
-          <label class="col-lg-6 control-label"></label>
-          <div class="col-lg-5">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
         </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label"></label>
+          <div class="col-lg-6">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+          <div class="form-group">
+          <label class="col-lg-8 control-label"></label>
+          <div class="col-lg-5">
+            <button type="submit" class="btn btn-danger"><a href="admin?action=list">Exit</a></button>
+          </div>
+          </div>
       </form>
     </div>
   </div>

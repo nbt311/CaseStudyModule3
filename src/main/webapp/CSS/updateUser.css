@@ -3,3 +3,11 @@ body{margin-top:20px;}
     width: 200px;
     height: 200px;
 }
+
+.form-group{
+    display: flex;
+}
+
+a {
+    color: #ffffff;
+}

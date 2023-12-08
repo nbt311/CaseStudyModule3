@@ -12,6 +12,7 @@
 <head>
     <title>User Detail</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/userDetail.css">
 </head>
@@ -59,7 +60,7 @@
                         <tr>
                             <td>
                                 <strong>
-                                    <span class="glyphicon glyphicon-bookmark text-primary"></span>
+                                    <span class="glyphicon glyphicon-envelope text-primary"></span>
                                     Email
                                 </strong>
                             </td>
@@ -70,7 +71,7 @@
                         <tr>
                             <td>
                                 <strong>
-                                    <span class="glyphicon glyphicon-eye-open text-primary"></span>
+                                    <span class="glyphicon glyphicon-phone-alt text-primary"></span>
                                     Phone
                                 </strong>
                             </td>
@@ -81,7 +82,7 @@
                         <tr>
                             <td>
                                 <strong>
-                                    <span class="glyphicon glyphicon-envelope text-primary"></span>
+                                    <span class="glyphicon glyphicon-star text-primary"></span>
                                     Username
                                 </strong>
                             </td>
@@ -92,7 +93,7 @@
                         <tr>
                             <td>
                                 <strong>
-                                    <span class="glyphicon glyphicon-calendar text-primary"></span>
+                                    <span class="glyphicon glyphicon-star-empty text-primary"></span>
                                     Password
                                 </strong>
                             </td>
@@ -103,13 +104,16 @@
                         <tr>
                             <td>
                                 <strong>
-                                    <span class="glyphicon glyphicon-calendar text-primary"></span>
+                                    <span class="glyphicon glyphicon-signal text-primary"></span>
                                     Role
                                 </strong>
                             </td>
                             <td class="text-primary">
                                 ${user.getRole()}
                             </td>
+                        </tr>
+                        <tr>
+                            <td><button type="button" class="btn btn-danger"><a href="admin?action=list">Back</a></button></td>
                         </tr>
                         </tbody>
                     </table>

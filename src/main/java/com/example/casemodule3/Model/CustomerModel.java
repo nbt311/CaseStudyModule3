@@ -2,7 +2,6 @@ package com.example.casemodule3.Model;
 
 import com.example.casemodule3.Database.Database;
 import com.example.casemodule3.Entity.Customer;
-import com.example.casemodule3.Entity.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -94,6 +93,22 @@ public class CustomerModel implements CustomerDAO {
             throw new RuntimeException(e);
         }
         return rowUpdated;
+    }
+
+    @Override
+    public int totalCustomer() {
+        int total = 0;
+        try {
+            String sql = "SELECT count(id) from customer";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                total = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return total;
     }
 
     @Override

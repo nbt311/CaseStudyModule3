@@ -65,10 +65,14 @@
                     </div>
                 </div>
                 <div class="form-group">
-                <label class="col-lg-6 control-label"></label>
+                <label class="col-lg-5 control-label"></label>
                 <div class="col-lg-5">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
+                    <label class="col-lg-5 control-label"></label>
+                    <div class="col-lg-4">
+                        <button type="button" class="btn btn-danger"><a href="admin?action=list">Exit</a></button>
+                    </div>
             </div>
             </form>
         </div>

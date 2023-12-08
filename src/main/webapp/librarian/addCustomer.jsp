@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="text-center mt-3">
                                     <button type="submit" class="btn btn-lg btn-primary">Create</button>
-                                    <a href="/customer" class="btn btn-lg btn-primary">Back</a>
+                                    <a href="/customer" class="btn btn-lg btn-danger">Back</a>
                                 </div>
                             </form>
                         </div>
