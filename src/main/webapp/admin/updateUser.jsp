@@ -5,7 +5,8 @@
   Time: 4:04 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -35,35 +36,35 @@
         This is an <strong>.alert</strong>. Use this to show important messages to the user.
       </div>
       <h3>Personal info</h3>
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal" role="form" method="post">
         <div class="form-group">
           <label class="col-lg-3 control-label">Name:</label>
           <div class="col-lg-8">
-            <input class="form-control" type="text" value="${user.getName()}">
+            <input class="form-control" type="text" name="name" value="${user.getName()}">
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label">Email:</label>
           <div class="col-lg-8">
-            <input class="form-control" type="text" value="${user.getEmail()}" readonly>
+            <input class="form-control" type="text" name="email" value="${user.getEmail()}" readonly >
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label">Phone:</label>
           <div class="col-lg-8">
-            <input class="form-control" type="text" value="${user.getPhone()}">
+            <input class="form-control" type="text" name="phone" value="${user.getPhone()}">
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label">Username:</label>
           <div class="col-lg-8">
-            <input class="form-control" type="text" value="${user.getUsername()}">
+            <input class="form-control" type="text" name="username" value="${user.getUsername()}">
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label">Password:</label>
           <div class="col-lg-8">
-            <input class="form-control" type="text" value="">
+            <input class="form-control" name="password" type="text" value="">
           </div>
         </div><div class="form-group">
           <label class="col-lg-6 control-label"></label>

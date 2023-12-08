@@ -26,8 +26,11 @@
         <a href="/customer?action=update&id=${customer.getId()}">Update</a>
 <%--        <a href="/customer?action=delete&id=${customer.getId()}">Delete</a>--%>
       </td>
+
     </tr>
     </c:forEach>
+    <h2>${sessionScope.userName}</h2>
+    <h2>sdfdsfsd</h2>
   </table>
 </head>
 <body>
