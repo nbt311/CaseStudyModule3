@@ -48,7 +48,7 @@
                             </td>
                             <td class="candidate-list-favourite-time text-center">
                                 <a class="candidate-list-favourite order-2 text-danger" href="#"><i class="fas fa-heart"></i></a>
-                                <span class="candidate-list-time order-1">Shortlisted</span>
+                                <span class="candidate-list-time order-1">${user.getRole()}</span>
                             </td>
                             <td>
                                 <ul class="list-unstyled mb-0 d-flex justify-content-end">
