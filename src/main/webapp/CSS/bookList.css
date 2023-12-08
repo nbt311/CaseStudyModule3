@@ -4,7 +4,7 @@
     border: none;
 }
 .nav{
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 20px;
 }
 .btn-b {
@@ -25,6 +25,7 @@
 table {
     border: 1px solid white;
     border-collapse: collapse;
+    font-weight: bold;
 }
 .nav-link {
     width: 120px;
@@ -32,7 +33,7 @@ table {
 }
 
 .title {
-    margin-top: 30px;
+    margin-top: 40px;
     text-align: center;
 }
 .box-nav {
@@ -44,4 +45,7 @@ table {
 }
 .btn-outline-primary{
     margin-left: 10px;
+}
+.nav-menu {
+    position: sticky;
 }

@@ -63,7 +63,6 @@ public class BookServlet extends HttpServlet {
                 break;
             case "updateBook":
                 bookController.updateBook(req, resp);
-
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
