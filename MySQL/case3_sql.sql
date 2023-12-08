@@ -152,4 +152,8 @@ values(1,5),
 insert into orderDetail(orders_id,books_id,payDay)
 values(2,5,"2023-12-15");
 
+select o.id, c.name, b.name from orders o
+join customer c on o.customer_id=c.id
+join books b on o.books_id=b.id;
+
 
