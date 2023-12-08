@@ -1,5 +1,6 @@
 package com.example.casemodule3.Servlet;
 
+import com.example.casemodule3.Controller.CustomerController;
 import com.example.casemodule3.Entity.Customer;
 import com.example.casemodule3.Entity.User;
 import com.example.casemodule3.Model.CustomerDAO;
@@ -18,6 +19,12 @@ import java.util.List;
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customer")
 public class CustomerServlet extends HttpServlet {
     CustomerDAO customerDAO = new CustomerModel();
+    protected CustomerController customerController;
+
+    @Override
+    public void init() throws ServletException {
+        this.customerController = new CustomerController();
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,39 +35,18 @@ public class CustomerServlet extends HttpServlet {
         try {
             switch (action) {
                 case "add":
-                    showFromAddCustomer(req, resp);
+                    customerController.showFromAddCustomer(req, resp);
                     break;
                 case "update":
-                    showFromUpdateCustomer(req, resp);
+                    customerController.showFromUpdateCustomer(req, resp);
                     break;
                 default:
-                    showCustomerList(req, resp);
+                    customerController.showCustomerList(req, resp);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
-    private void showFromUpdateCustomer(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
-        Customer customer = customerDAO.findCustomerById(id);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("librarian/updateCustomer.jsp");
-        req.setAttribute("customer",customer );
-        dispatcher.forward(req, resp);
-    }
-
-    private void showFromAddCustomer(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/librarian/addCustomer.jsp");
-        dispatcher.forward(req, resp);
-    }
-
-    private void showCustomerList(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
-        List<Customer> listCustomer = customerDAO.getAll();
-        req.setAttribute("listCustomer", listCustomer);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("librarian/customerList.jsp");
-        dispatcher.forward(req, resp);
-    }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
@@ -70,38 +56,14 @@ public class CustomerServlet extends HttpServlet {
         try {
             switch (action) {
                 case "add":
-                    addCustomer(req, resp);
+                    customerController.addCustomer(req, resp);
                     break;
                 case "update":
-                    updateCustomer(req, resp);
+                    customerController.updateCustomer(req, resp);
                     break;
-
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
-
-    private void updateCustomer(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
-        String name = req.getParameter("name");
-        String className = req.getParameter("className");
-        String address = req.getParameter("address");
-        String dateOfBirth = req.getParameter("dateOfBirth");
-
-        Customer customer = new Customer(id, name, className , address,dateOfBirth);
-        customerDAO.updateCustomer(customer);
-        resp.sendRedirect("/customer");
-    }
-
-    private void addCustomer(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, SQLException {
-        String name = req.getParameter("name");
-        String className = req.getParameter("className");
-        String address = req.getParameter("address");
-        String dateOfBirth = req.getParameter("dateOfBirth");
-        Customer customer = new Customer(name, className, address, dateOfBirth);
-        customerDAO.addCustomer(customer);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/librarian/addCustomer.jsp");
-        dispatcher.forward(req, resp);
     }
 }
