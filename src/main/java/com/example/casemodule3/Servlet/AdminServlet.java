@@ -35,6 +35,9 @@ public class AdminServlet extends HttpServlet {
                 case "add":
                     showFormAddLibrarian(req, resp);
                     break;
+                case "view":
+                    showUserDetails(req, resp);
+                    break;
                 case "update":
                     showFormUpdateUser(req, resp);
                     break;
@@ -58,11 +61,19 @@ public class AdminServlet extends HttpServlet {
         }
     }
 
+    private void showUserDetails(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        User user = adminDAO.selectUser(id);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("admin/userDetail.jsp");
+        req.setAttribute("user", user);
+        dispatcher.forward(req, resp);
+    }
+
     private void showFormUpdateUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
-        User existingUser = adminDAO.selectUser(id);
+        User user = adminDAO.selectUser(id);
         RequestDispatcher dispatcher = req.getRequestDispatcher("admin/updateUser.jsp");
-        req.setAttribute("user", existingUser);
+        req.setAttribute("user", user);
         dispatcher.forward(req, resp);
     }
 

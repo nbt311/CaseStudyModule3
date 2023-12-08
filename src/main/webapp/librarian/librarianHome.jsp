@@ -81,7 +81,7 @@
             <span class="num">8</span>
         </a>
         <a href="#" class="profile">
-            <img src="img/people.png">
+            <img src="Image/trump-avatar.jpg">
         </a>
     </nav>
     <!-- NAVBAR -->

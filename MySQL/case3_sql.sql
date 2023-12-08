@@ -137,6 +137,19 @@ values ("Conan",
  books_id int,
  foreign key (orders_id) references orders(id),
  foreign key (books_id) references books(id),
-borroweDay date,
+borroweDay DATETIME DEFAULT CURRENT_TIMESTAMP,
 payDay date
  );
+SELECT day(borroweDay) from orderDetail;
+insert into orders(customer_id,books_id)
+values(1,5),
+(2,11),
+(3,4),
+(5,9),
+(5,3),
+(2,8);
+
+insert into orderDetail(orders_id,books_id,payDay)
+values(2,5,"2023-12-15");
+
+

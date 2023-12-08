@@ -20,7 +20,7 @@
                     <table class="table manage-candidates-top mb-0">
                         <thead>
                         <tr>
-                            <th>User Name</th>
+                            <th>Name</th>
                             <th class="text-center">Role</th>
                             <th class="action text-right">Action</th>
                         </tr>
@@ -30,7 +30,7 @@
                         <tr class="user-list">
                             <td class="title">
                                 <div class="thumb">
-                                    <img class="img-fluid" value="${user.getAvatar()}"/>
+                                    <img class="img-fluid" src="${user.getAvatar()}"/>
                                 </div>
                                 <div class="candidate-list-details">
                                     <div class="candidate-list-info">
@@ -39,8 +39,9 @@
                                         </div>
                                         <div class="candidate-list-option">
                                             <ul class="list-unstyled">
-                                                <li><i class="fas fa-filter pr-1"></i>Information Technology</li>
-                                                <li><i class="fas fa-map-marker-alt pr-1"></i>Rolling Meadows, IL 60008</li>
+                                                <li><i class="fas fa-filter pr-1"></i>${user.getId()}</li>
+                                                <li><i class="fas fa-filter pr-1"></i>${user.getEmail()}</li>
+                                                <li><i class="fas fa-map-marker-alt pr-1"></i>${user.getPhone()}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -48,13 +49,13 @@
                             </td>
                             <td class="candidate-list-favourite-time text-center">
                                 <a class="candidate-list-favourite order-2 text-danger" href="#"><i class="fas fa-heart"></i></a>
-                                <span class="candidate-list-time order-1">Shortlisted</span>
+                                <span class="candidate-list-time order-1">${user.getRole()}</span>
                             </td>
                             <td>
                                 <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                    <li><a href="#" class="text-primary" data-toggle="tooltip" title data-original-title="view"><i class="far fa-eye"></i></a></li>
-                                    <li><a href="#" class="text-info" data-toggle="tooltip" title data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
-                                    <li><a href="#" class="text-danger" data-toggle="tooltip" title data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
+                                    <li><a href="/admin?action=view&id=${user.getId()}" class="text-primary" data-toggle="tooltip" title data-original-title="view"><i class="far fa-eye"></i></a></li>
+                                    <li><a href="/admin?action=update&id=${user.getId()}" class="text-info" data-toggle="tooltip" title data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
+                                    <li><a href="/admin?action=delete&id=${user.getId()}" class="text-danger" data-toggle="tooltip" title data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
                                 </ul>
                             </td>
                         </tr>
