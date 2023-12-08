@@ -20,13 +20,13 @@
 </head>
 <body>
 <section id="sidebar">
-  <a href="/admin" class="brand">
+  <a href="/librarian" class="brand">
     <i class='bx bxs-smile'></i>
     <span class="text">LibrarianHome</span>
   </a>
   <ul class="side-menu top">
     <li class="active">
-      <a href="/admin">
+      <a href="/librarian">
         <i class='bx bxs-dashboard' ></i>
         <span class="text">Dashboard</span>
       </a>
@@ -38,9 +38,9 @@
       </a>
     </li>
     <li>
-      <a href="/admin?action=list">
+      <a href="/customer?action=list">
         <i class='bx bxs-group' ></i>
-        <span class="text">User List</span>
+        <span class="text">Customer List</span>
       </a>
     </li>
   </ul>
