@@ -4,6 +4,7 @@ import com.example.casemodule3.Controller.BookController;
 import com.example.casemodule3.Entity.User;
 import com.example.casemodule3.Model.AdminDAO;
 import com.example.casemodule3.Model.AdminModel;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,18 +36,12 @@ public class AdminServlet extends HttpServlet {
                 case "add":
                     showFormAddLibrarian(req, resp);
                     break;
-                case "view":
-                    showUserDetails(req, resp);
-                    break;
-                case "update":
-                    showFormUpdateUser(req, resp);
-                    break;
                 case "delete":
                     deleteLibrarian(req, resp);
                     break;
-                case "list":
-                    showListUser(req, resp);
-                    break;
+                    case "list":
+                        showListUser(req, resp);
+                        break;
                 default:
                     bookController.showHomeAdmin(req,resp);
             }
@@ -61,22 +56,6 @@ public class AdminServlet extends HttpServlet {
         }
     }
 
-    private void showUserDetails(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
-        User user = adminDAO.selectUser(id);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("admin/userDetail.jsp");
-        req.setAttribute("user", user);
-        dispatcher.forward(req, resp);
-    }
-
-    private void showFormUpdateUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
-        User user = adminDAO.selectUser(id);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("admin/updateUser.jsp");
-        req.setAttribute("user", user);
-        dispatcher.forward(req, resp);
-    }
-
     private void showListUser(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
         List<User> listUser = adminDAO.getAll();
         req.setAttribute("listUser", listUser);
@@ -89,7 +68,6 @@ public class AdminServlet extends HttpServlet {
         adminDAO.deleteUser(id);
         resp.sendRedirect("/admin?action=list");
     }
-
     private void showFormAddLibrarian(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/addLibrarian.jsp");
         dispatcher.forward(req, resp);
@@ -107,23 +85,10 @@ public class AdminServlet extends HttpServlet {
                 case "add":
                     addLibrarian(req, resp);
                     break;
-                case "update":
-                    updateUser(req, resp);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    private void updateUser(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
-        String name = req.getParameter("name");
-        String email = req.getParameter("email");
-        String phone = req.getParameter("phone");
-
-        User user = new User(id, name, email, phone);
-        adminDAO.updateUser(user);
-        resp.sendRedirect("/admin?action=list");
     }
 
     private void addLibrarian(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {

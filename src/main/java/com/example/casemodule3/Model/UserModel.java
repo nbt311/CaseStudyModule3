@@ -73,4 +73,20 @@ public class UserModel implements UserDAO {
         }
         return null; // Trả về null nếu không tìm thấy vai trò
     }
+
+    @Override
+    public int totalUser() {
+        int total = 0;
+        try {
+            String sql = "SELECT count(id) from users";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                total = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return total;
+    }
 }

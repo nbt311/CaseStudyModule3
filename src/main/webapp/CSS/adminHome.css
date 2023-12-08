@@ -275,6 +275,10 @@ body {
     object-fit: cover;
     border-radius: 50%;
 }
+.user-name {
+    margin-right: 10px;
+}
+
 #content nav .switch-mode {
     display: block;
     min-width: 50px;
