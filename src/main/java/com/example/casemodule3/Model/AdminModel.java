@@ -121,4 +121,9 @@ public class AdminModel implements AdminDAO{
         }
         return rowDeleted;
     }
+
+    @Override
+    public User getUserById(int id) {
+        return null;
+    }
 }

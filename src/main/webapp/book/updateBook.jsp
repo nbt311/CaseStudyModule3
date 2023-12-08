@@ -16,7 +16,7 @@
 
 <div class="container">
     <h2>Add book</h2>
-    <form action="/book?action=updateBook&id=<c:out value="${book.getId()}"/> " method="post">
+    <form action="/book?action=updateBook&id=<c:out value="${book.getId()}"/>" method="post">
         <div class="form-group">
             <label>Name</label>
             <input type="text" class="form-control" value="${book.getName()}"   placeholder="Name" name="name">

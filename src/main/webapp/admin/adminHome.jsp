@@ -80,6 +80,8 @@
             <i class='bx bxs-bell' ></i>
             <span class="num">8</span>
         </a>
+        <h2>${sessionScope.userName}</h2>
+
         <a href="#" class="profile">
             <img src="Image/admin-avatar.jpg"/>
         </a>

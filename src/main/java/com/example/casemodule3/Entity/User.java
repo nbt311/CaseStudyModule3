@@ -23,6 +23,15 @@ public class User {
         this.role = role;
     }
 
+    public User(int id, String name, String email, String phone, String avatar, String username) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.avatar = avatar;
+        this.username = username;
+    }
+
     public User(String name, String email, String phone, String username, String password, String role) {
         this.name = name;
         this.email = email;
