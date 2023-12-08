@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+.nav{
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.btn-b {
+    color: white;
+    text-decoration: none;
+}
+.btn-b:hover {
+    color: yellow;
+    text-decoration: none;
+}
+#img-book {
+    max-width: 200px;
+    max-height: 300px;
+}
+.tbl-describes {
+    width: 200px;
+}
+table {
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+.nav-link {
+    width: 120px;
+    text-align: center;
+}
+
+.title {
+    margin-top: 30px;
+    text-align: center;
+}
+.box-nav {
+    display: flex;
+}
+.input-group {
+    width: 30%;
+    margin-bottom: 20px;
+}
+.btn-outline-primary{
+    margin-left: 10px;
+}

@@ -6,37 +6,41 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
   <title>Title</title>
-  <link rel="stylesheet" href="/CSS/librarianHome.css">
+  <link rel="stylesheet" href="/CSS/bookList.css">
+
 </head>
 <body>
-<div class="container">
-  <h2>Danh sách thư viện</h2>
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link active"  href="/products?action=create">Add</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#">Disabled</a>
-    </li>
-  </ul>
+
+  <div class="container">
+    <h2 class="title">Danh Sách Thư Viện</h2>
+    <div class="box-nav">
+
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active"  href="/book?action=add">Add Book</a>
+        </li>
+      </ul>
+  </div>
+    <form action="/book" method="get">
+      <div class="input-group">
+        <input type="text" name="keyword" value="<c:out value="${keyword}"/>" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <button type="submit" class="btn btn-outline-primary" data-mdb-ripple-init>Search</button>
+      </div>
+    </form>
+
 </div>
+
 
 <div class="container">
   <table class="table table-dark table-striped">
     <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
       <th>Avatar</th>
       <th>Describes</th>
@@ -49,12 +53,15 @@
     <tbody>
     <c:forEach var="item" items="${books}" >
       <tr>
+        <td>${item.getId()}</td>
         <td>${item.getName()}</td>
         <td><img id="img-book" src="${item.getAvatar()}" alt=""></td>
-        <td>${item.getDescribes()}</td>
+        <td class="tbl-describes">${item.getDescribes()}</td>
         <td>${item.getStatus()}</td>
         <td>${item.getCategory()}</td>
         <td>${item.getAuthor()}</td>
+        <td><button type="button"  class="btn btn-danger"><a class="btn-b" href="/book?action=delete&id=<c:out value="${item.getId()}"/>">Delete</a></button></td>
+        <td><button type="button" class="btn btn-success" ><a class="btn-b"  href="/book?action=update&id=<c:out value="${item.getId()}"/>">Update</a></button></td>
       </tr>
     </c:forEach>
 
