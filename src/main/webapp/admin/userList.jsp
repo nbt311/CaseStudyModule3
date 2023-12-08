@@ -39,7 +39,7 @@
                                         </div>
                                         <div class="candidate-list-option">
                                             <ul class="list-unstyled">
-                                                <li><i class="fas fa-filter pr-1"></i>${user.getId()}</li>
+                                                <li><i class="fas fa-filter pr-1" style="display: none;">${user.getId()}</i></li>
                                                 <li><i class="fas fa-filter pr-1"></i>${user.getEmail()}</li>
                                                 <li><i class="fas fa-map-marker-alt pr-1"></i>${user.getPhone()}</li>
                                             </ul>
