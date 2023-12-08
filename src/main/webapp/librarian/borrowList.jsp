@@ -90,7 +90,6 @@
                   <th>Customer Name</th>
                   <th>Book Name</th>
                   <th class="action">Detail</th>
-                  <th><a href="/customer?action=add" class="text-success" data-toggle="tooltip" title data-original-title="Add"><i class="far fa-plus-square"></i></a></th>
                 </tr>
                 </thead>
                 <tbody>
