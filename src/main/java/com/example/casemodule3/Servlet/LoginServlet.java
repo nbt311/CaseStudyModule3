@@ -41,14 +41,20 @@ public class LoginServlet extends HttpServlet {
 
                     user = users.getUserName(username,password);
                     String userName = user.getName();
+                    String userAvatar = user.getAvatar();
+                    System.out.println(userAvatar);
                     session.setAttribute("userName", userName);
+                    session.setAttribute("userAvatar", userAvatar);
                     resp.sendRedirect("/admin");
 
                 }else if (role.equals("librarian")){
 
                     user = users.getUserName(username,password);
                     String userName = user.getName();
+                    String userAvatar = user.getAvatar();
+                    System.out.println(userAvatar);
                     session.setAttribute("userName", userName);
+                    session.setAttribute("userAvatar", userAvatar);
                     resp.sendRedirect("/librarian");
                 }
             }else {

@@ -78,6 +78,7 @@
             <button type="submit" class="btn btn-danger"><a href="admin?action=list">Exit</a></button>
           </div>
           </div>
+        </div>
       </form>
     </div>
   </div>

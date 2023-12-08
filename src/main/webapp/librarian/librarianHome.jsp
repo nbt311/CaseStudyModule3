@@ -75,7 +75,7 @@
         </form>
         <h2>${sessionScope.userName}</h2>
         <a href="#" class="profile">
-            <img src="Image/trump-avatar.jpg">
+            <img src="${sessionScope.userAvatar}">
         </a>
     </nav>
     <!-- NAVBAR -->

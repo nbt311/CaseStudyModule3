@@ -63,10 +63,10 @@
         <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
       </div>
     </form>
+    <h2>${sessionScope.userName}</h2>
     <a href="#" class="profile">
-      <img src="Image/admin-avatar.jpg"/>
+      <img src="${sessionScope.userAvatar}">
     </a>
-    <span class="user-name">Ten nguoi dung</span>
   </nav>
   <!-- NAVBAR -->
 <main>

@@ -58,7 +58,7 @@
             </div>
         </form>
         <a href="#" class="profile">
-            <img src="Image/admin-avatar.jpg"/>
+            <img src="${sessionScope.userAvatar}">
         </a>
         <h2>${sessionScope.userName}</h2>
     </nav>
