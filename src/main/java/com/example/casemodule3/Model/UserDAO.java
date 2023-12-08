@@ -10,4 +10,6 @@ public interface UserDAO {
     boolean checkUser(String userName, String password) throws SQLException;
     String getRole(String userName) throws SQLException;
     int totalUser();
+
+    User getUserName(String username, String password);
 }

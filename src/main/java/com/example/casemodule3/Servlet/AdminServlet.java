@@ -72,6 +72,11 @@ public class AdminServlet extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 
+    private void displayNameUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        int name = Integer.parseInt(req.getParameter("name"));
+
+    }
+
     private void showFormUpdateUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         User user = adminDAO.selectUser(id);

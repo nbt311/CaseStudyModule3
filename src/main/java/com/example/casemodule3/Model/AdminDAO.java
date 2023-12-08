@@ -11,4 +11,5 @@ public interface AdminDAO {
     User selectUser(int id);
     boolean updateUser(User user) throws SQLException;
     boolean deleteUser(int id) throws SQLException;
+    User getUserById(int id);
 }

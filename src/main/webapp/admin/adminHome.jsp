@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,16 +67,24 @@
 <section id="content">
     <!-- NAVBAR -->
     <nav>
+        <a href="#" class="nav-link">Categories</a>
         <form action="#">
             <div class="form-input">
                 <input type="search" placeholder="Search...">
                 <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
             </div>
         </form>
+        <input type="checkbox" id="switch-mode" hidden>
+        <label for="switch-mode" class="switch-mode"></label>
+        <a href="#" class="notification">
+            <i class='bx bxs-bell' ></i>
+            <span class="num">8</span>
+        </a>
+        <h2>${sessionScope.userName}</h2>
+
         <a href="#" class="profile">
             <img src="Image/admin-avatar.jpg"/>
         </a>
-        <span class="user-name">Ten nguoi dung</span>
     </nav>
     <!-- NAVBAR -->
 

@@ -60,7 +60,7 @@
         <a href="#" class="profile">
             <img src="Image/admin-avatar.jpg"/>
         </a>
-        <span class="user-name">Ten nguoi dung</span>
+        <h2>${sessionScope.userName}</h2>
     </nav>
     <!-- NAVBAR -->
 

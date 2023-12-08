@@ -16,7 +16,7 @@
 </head>
 <body>
 
-  <div class="container">
+  <div class="container nav-menu">
     <h2 class="title">Danh Sách Thư Viện</h2>
     <div class="box-nav">
 
@@ -34,12 +34,10 @@
     </form>
 
 </div>
-
-
 <div class="container">
   <table class="table table-dark table-striped">
     <thead>
-    <tr>
+    <tr class="title-book">
       <th>Id</th>
       <th>Name</th>
       <th>Avatar</th>
