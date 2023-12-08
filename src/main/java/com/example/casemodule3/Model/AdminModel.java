@@ -20,18 +20,22 @@ public class AdminModel implements AdminDAO{
     public List<User> getAll() throws SQLException {
         List<User> users = new ArrayList<>();
         try {
-            String sql = "SELECT name, email, phone, avatar, username, password, role FROM users";
+            String sql = "SELECT  * FROM users";
+//            String sql = "SELECT name, " +
+//                    "email, phone, avatar, " +
+//                    "username, password, role FROM users";
             PreparedStatement statement = conn.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                String name = rs.getString(1);
-                String email = rs.getString(2);
-                String phone = rs.getString(3);
-                String avatar = rs.getString(4);
-                String username = rs.getString(5);
-                String password = rs.getString(6);
-                String role = rs.getString(7);
-                User user = new User(name, email, phone, avatar, username, password, role);
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                String email = rs.getString(3);
+                String phone = rs.getString(4);
+                String avatar = rs.getString(5);
+                String username = rs.getString(6);
+                String password = rs.getString(7);
+                String role = rs.getString(8);
+                User user = new User(id,name, email, phone, avatar, username, password, role);
                 users.add(user);
             }
         } catch (SQLException e) {
@@ -59,6 +63,49 @@ public class AdminModel implements AdminDAO{
         } catch (SQLException e) {
             System.out.println(e.getMessage() + "Error");
         }
+    }
+
+    @Override
+    public User selectUser(int id) {
+        User user = null;
+        try {
+//            String sql ="SELECT id,name,email,phone FROM users WHERE id =?";
+            String sql ="SELECT * FROM users WHERE id =?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String phone = rs.getString("phone");
+                String avatar = rs.getString("avatar");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String role = rs.getString("role");
+                user = new User(id, name, email, phone, avatar, username,password,role);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + "Error");
+        }
+        return user;
+    }
+
+    @Override
+    public boolean updateUser(User user) throws SQLException {
+        boolean rowUpdated;
+        try {
+            String sql = "UPDATE users set name = ?,email= ?, phone =? where id = ?;";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, user.getName());
+            statement.setString(2, user.getEmail());
+            statement.setString(3, user.getPhone());
+            statement.setInt(4, user.getId());
+            rowUpdated = statement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return rowUpdated;
     }
 
     @Override

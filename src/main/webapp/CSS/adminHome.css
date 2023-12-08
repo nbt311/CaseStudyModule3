@@ -353,10 +353,6 @@ body {
     grid-gap: 10px;
     font-weight: 500;
 }
-
-
-
-
 #content main .box-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

@@ -39,6 +39,7 @@ public class LoginServlet extends HttpServlet {
                     resp.sendRedirect("/librarian");
                 }
             }else {
+                resp.sendRedirect("/login");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

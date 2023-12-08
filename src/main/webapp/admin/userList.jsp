@@ -20,9 +20,10 @@
                     <table class="table manage-candidates-top mb-0">
                         <thead>
                         <tr>
-                            <th>User Name</th>
+                            <th>Name</th>
                             <th class="text-center">Role</th>
                             <th class="action text-right">Action</th>
+                            <th><a href="/admin?action=add" class="text-success" data-toggle="tooltip" title data-original-title="Add"><i class="far fa-plus-square"></i></a></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -30,7 +31,7 @@
                         <tr class="user-list">
                             <td class="title">
                                 <div class="thumb">
-                                    <img class="img-fluid" value="${user.getAvatar()}"/>
+                                    <img class="img-fluid" src="${user.getAvatar()}"/>
                                 </div>
                                 <div class="candidate-list-details">
                                     <div class="candidate-list-info">
@@ -39,8 +40,9 @@
                                         </div>
                                         <div class="candidate-list-option">
                                             <ul class="list-unstyled">
-                                                <li><i class="fas fa-filter pr-1"></i>Information Technology</li>
-                                                <li><i class="fas fa-map-marker-alt pr-1"></i>Rolling Meadows, IL 60008</li>
+                                                <li><i class="fas fa-filter pr-1" style="display: none;">${user.getId()}</i></li>
+                                                <li><i class="fas fa-envelope-open-text pr-1"></i>${user.getEmail()}</li>
+                                                <li><i class="fas fa-phone-square-alt pr-1"></i>${user.getPhone()}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -52,9 +54,9 @@
                             </td>
                             <td>
                                 <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                    <li><a href="#" class="text-primary" data-toggle="tooltip" title data-original-title="view"><i class="far fa-eye"></i></a></li>
-                                    <li><a href="#" class="text-info" data-toggle="tooltip" title data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
-                                    <li><a href="#" class="text-danger" data-toggle="tooltip" title data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
+                                    <li><a href="/admin?action=view&id=${user.getId()}" class="text-primary" data-toggle="tooltip" title data-original-title="View"><i class="far fa-eye"></i></a></li>
+                                    <li><a href="/admin?action=update&id=${user.getId()}" class="text-info" data-toggle="tooltip" title data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
+                                    <li><a href="/admin?action=delete&id=${user.getId()}" class="text-danger" data-toggle="tooltip" title data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
                                 </ul>
                             </td>
                         </tr>
@@ -66,41 +68,5 @@
         </div>
     </div>
 </div>
-
-<%--<center>--%>
-<%--    <h1>User Management</h1>--%>
-<%--    <h2>--%>
-<%--        <a href="/admin?action=add">Add New User</a>--%>
-<%--    </h2>--%>
-<%--</center>--%>
-<%--<div align="center">--%>
-<%--    <table border="1" cellpadding="5">--%>
-<%--        <caption><h2>List of Users</h2></caption>--%>
-<%--        <tr>--%>
-<%--            <th>Name</th>--%>
-<%--            <th>Email</th>--%>
-<%--            <th>phone</th>--%>
-<%--            <th>avatar</th>--%>
-<%--            <th>username</th>--%>
-<%--            <th>password</th>--%>
-<%--            <th>role</th>--%>
-<%--        </tr>--%>
-<%--        <c:forEach var="user" items="${listUser}">--%>
-<%--            <tr>--%>
-<%--                <td><c:out value="${user.getName()}"/></td>--%>
-<%--                <td><c:out value="${user.getEmail()}"/></td>--%>
-<%--                <td><c:out value="${user.getPhone()}"/></td>--%>
-<%--                <td><c:out value="${user.getAvatar()}"/></td>--%>
-<%--                <td><c:out value="${user.getUsername()}"/></td>--%>
-<%--                <td><c:out value="${user.getPassword()}"/></td>--%>
-<%--                <td><c:out value="${user.getRole()}"/></td>--%>
-<%--                <td>--%>
-<%--                    <a href="/admin?action=update&id=${user.getId()}">Update</a>--%>
-<%--                    <a href="/admin?action=delete&id=${user.getId()}">Delete</a>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--        </c:forEach>--%>
-<%--    </table>--%>
-<%--</div>--%>
 </body>
 </html>
