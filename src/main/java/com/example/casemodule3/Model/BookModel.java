@@ -156,6 +156,26 @@ public class BookModel implements BookDAO {
 
     @Override
     public List<Book> search(String key) {
-        return null;
+        List<Book> books = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM books WHERE name LIKE ?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, '%' + key + '%');
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                String avatar = rs.getString(3);
+                String describes = rs.getString(4);
+                String status = rs.getString(5);
+                String category = rs.getString(6);
+                String author = rs.getString(7);
+                Book book = new Book(id, name, avatar, describes, status, category, author);
+                books.add(book);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return books;
     }
 }

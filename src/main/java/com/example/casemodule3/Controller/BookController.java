@@ -17,11 +17,19 @@ public class BookController {
     }
 
     public void showListBook(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    List<Book> data;
-    data = bookDAO.getAll();
-    request.setAttribute("books", data);
-    RequestDispatcher view = request.getRequestDispatcher("book/bookList.jsp");
-    view.forward(request, response);
+        String keyword = request.getParameter("keyword");
+        List<Book> data;
+        if (keyword == null) {
+            data = bookDAO.getAll();
+        }else {
+            data = bookDAO.search(keyword);
+            System.out.println("lay du lieu" + data);
+        }
+        request.setAttribute("Keyword", data);
+
+        request.setAttribute("books", data);
+        RequestDispatcher view = request.getRequestDispatcher("book/bookList.jsp");
+        view.forward(request, response);
     }
 
     public void showAddBook(HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -38,6 +46,7 @@ public class BookController {
         RequestDispatcher view = request.getRequestDispatcher("/book/updateBook.jsp");
         view.forward(request, response);
     }
+
     public void deleteBook(HttpServletRequest request, HttpServletResponse response) throws Exception{
         int id = Integer.parseInt(request.getParameter("id"));
         bookDAO.delete(id);

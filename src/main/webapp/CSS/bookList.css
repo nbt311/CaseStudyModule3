@@ -30,20 +30,18 @@ table {
     width: 120px;
     text-align: center;
 }
-.nav-link:hover {
-    color: yellow;
-    background: #7019d9;
-}
+
 .title {
     margin-top: 30px;
     text-align: center;
 }
-/*.table {*/
-/*    width: 100vw;*/
-
-/*}*/
-/*.container {*/
-/*padding-left: 0px;*/
-/*margin-right: 100px;*/
-/*margin-left: 100px;*/
-/*}*/
+.box-nav {
+    display: flex;
+}
+.input-group {
+    width: 30%;
+    margin-bottom: 20px;
+}
+.btn-outline-primary{
+    margin-left: 10px;
+}

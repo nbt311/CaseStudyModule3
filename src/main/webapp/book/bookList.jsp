@@ -15,14 +15,26 @@
 
 </head>
 <body>
-<div class="container">
-  <h2 class="title">Danh Sách Thư Viện</h2>
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link active"  href="/book?action=add">Add Book</a>
-    </li>
-  </ul>
+
+  <div class="container">
+    <h2 class="title">Danh Sách Thư Viện</h2>
+    <div class="box-nav">
+
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active"  href="/book?action=add">Add Book</a>
+        </li>
+      </ul>
+  </div>
+    <form action="/book" method="get">
+      <div class="input-group">
+        <input type="text" name="keyword" value="<c:out value="${keyword}"/>" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <button type="submit" class="btn btn-outline-primary" data-mdb-ripple-init>Search</button>
+      </div>
+    </form>
+
 </div>
+
 
 <div class="container">
   <table class="table table-dark table-striped">

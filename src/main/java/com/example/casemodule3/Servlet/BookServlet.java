@@ -37,6 +37,9 @@ public class BookServlet extends HttpServlet {
                 case "delete":
                     bookController.deleteBook(req, resp);
                     break;
+                case "search":
+                    bookController.showListBook(req, resp);
+                    break;
                 default:
                     bookController.showListBook(req,resp);
                     break;
