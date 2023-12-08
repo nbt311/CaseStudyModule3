@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface BookBorrowingDAO {
     List<BookBorrow> getAllBookBorrow();
+    BookBorrow findBorrowById(int id);
 }

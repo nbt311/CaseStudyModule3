@@ -39,4 +39,27 @@ public class BookBorrowingModel implements BookBorrowingDAO {
         }
         return bookBorrow;
     }
+
+    @Override
+    public BookBorrow findBorrowById(int id) {
+        BookBorrow borrow = null;
+        try {
+            String sql ="select customer.name, books.name ,orderDetail.borroweDay, orderDetail.payDay from orderDetail join orders on orderDetail.orders_id=orders.id join books  on orders.books_id=books.id join customer  on orders.customer_id=customer.id where orders.id=?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                String customerName = rs.getString(1);
+                String bookName = rs.getString(2);
+                String borroweDay = rs.getString(3);
+                String payDay = rs.getString(4);
+                borrow = new BookBorrow(customerName,bookName,borroweDay,payDay);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + "Error");
+        }
+        return borrow;
+    }
+
 }

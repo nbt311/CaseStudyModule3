@@ -23,6 +23,7 @@
       <td>${borrow.getId()}</td>
       <td>${borrow.getCustomerName()}</td>
       <td>${borrow.getBookName()}</td>
+      <td><a href="borrow?action=view&id=${borrow.getId()}"></a></td>
     </tr>
   </c:forEach>
 </table>

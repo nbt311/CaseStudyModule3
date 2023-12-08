@@ -3,6 +3,7 @@ package com.example.casemodule3.Servlet;
 import com.example.casemodule3.Entity.Book;
 import com.example.casemodule3.Entity.BookBorrow;
 import com.example.casemodule3.Entity.Customer;
+import com.example.casemodule3.Entity.User;
 import com.example.casemodule3.Model.BookBorrowingDAO;
 import com.example.casemodule3.Model.BookBorrowingModel;
 
@@ -26,7 +27,9 @@ public class BorrowServlet extends HttpServlet {
         }
         try {
             switch (action) {
-
+                    case "view":
+                        showBorrowDetail(req, resp);
+                        break;
                 default:
                     showListBorrow(req,resp);
                     break;
@@ -34,6 +37,14 @@ public class BorrowServlet extends HttpServlet {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void showBorrowDetail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        BookBorrow borrow = borrowDAO.findBorrowById(id);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("librarian/borrowDetail.jsp");
+        req.setAttribute("borrow", borrow);
+        dispatcher.forward(req, resp);
     }
 
     private void showListBorrow(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
